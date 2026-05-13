@@ -3,7 +3,7 @@
 #include <cmath> //  pour std::sqrt, std::cos, std::sin
 #include "draw.hpp" // Nécessaire pour la fonction draw_picture
 #include <vector>   // Nécessaire pour les listes de points
-
+#include "circle.hpp"
 Square::Square(Point P, Point R) : A(P), C(R) {};
 
 
@@ -65,4 +65,8 @@ void Square::resize(double ratio) {
     A.y = M.y + (A.y - M.y) * ratio;
     C.x = M.x + (C.x - M.x) * ratio;
     C.y = M.y + (C.y - M.y) * ratio;
+}
+// Cercle inscrit
+Circle Square::inscribedCircle() {
+    return Circle(side() / 2.0, center());
 }
